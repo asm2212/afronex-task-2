@@ -1,6 +1,6 @@
-// ForecastSearch.js
 import React, { useState } from 'react';
 import axios from 'axios';
+import WeatherIcons from './WeatherIcons';
 
 function ForecastSearch() {
     const [searchQuery, setSearchQuery] = useState('');
@@ -9,7 +9,7 @@ function ForecastSearch() {
 
     const handleSearch = async () => {
         try {
-            const response = await axios.get(`api.openweathermap.org/data/2.5/forecast/daily?lat={lat}&lon={lon}&cnt={cnt}&appid={API key}`);
+            const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${searchQuery}&appid={API key}`);
             setSearchResults([response.data]);
         } catch (error) {
             setError(error.message);
@@ -27,7 +27,13 @@ function ForecastSearch() {
             />
             <button onClick={handleSearch}>Search</button>
             {searchResults.map((result) => (
-                <div key={result.id}>{result.name}: {result.main.temp}°C</div>
+                <div key={result.id}>
+                    <div>City: {result.name}</div>
+                    <div>Temperature: {result.main.temp}°C</div>
+                    <div>Humidity: {result.main.humidity}%</div>
+                    <div>Wind Speed: {result.wind.speed} m/s</div>
+                    <WeatherIcons condition={result.weather[0].main} />
+                </div>
             ))}
         </div>
     );
