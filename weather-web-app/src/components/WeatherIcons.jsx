@@ -1,4 +1,4 @@
-// WeatherIcons.js
+
 import React from 'react';
 import { RiSunFill, RiRainFill, RiCloudFill } from 'react-icons/ri'; // Import icons from React Icons library
 
