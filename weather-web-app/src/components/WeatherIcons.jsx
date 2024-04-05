@@ -1,19 +1,18 @@
-
+// WeatherIcons.js
 import React from 'react';
-import { RiSunFill, RiRainFill, RiCloudFill } from 'react-icons/ri'; // Import icons from React Icons library
+import { RiSunFill, RiRainFill, RiCloudFill } from 'react-icons/ri';
 
 function WeatherIcons({ condition }) {
     let icon;
 
-    // Determine which icon to display based on weather condition
     switch (condition) {
-        case 'sunny':
+        case 'Clear':
             icon = <RiSunFill />;
             break;
-        case 'rainy':
+        case 'Rain':
             icon = <RiRainFill />;
             break;
-        case 'cloudy':
+        case 'Clouds':
             icon = <RiCloudFill />;
             break;
         default:
