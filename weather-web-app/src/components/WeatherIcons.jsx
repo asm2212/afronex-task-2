@@ -1,6 +1,7 @@
-
+// WeatherIcons.js
 import React from 'react';
-import { RiSunFill, RiRainFill, RiCloudFill } from 'react-icons/ri';
+import { RiSunFill, RiCloudFill } from 'react-icons/ri';
+import { WiRain } from 'react-icons/wi';
 
 function WeatherIcons({ condition }) {
     let icon;
@@ -10,7 +11,7 @@ function WeatherIcons({ condition }) {
             icon = <RiSunFill />;
             break;
         case 'Rain':
-            icon = <RiRainFill />;
+            icon = <WiRain />;
             break;
         case 'Clouds':
             icon = <RiCloudFill />;
