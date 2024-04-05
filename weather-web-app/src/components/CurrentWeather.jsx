@@ -9,7 +9,7 @@ function CurrentWeather() {
     useEffect(() => {
         const fetchWeatherData = async () => {
             try {
-                const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?lat={LATITUDE}&lon={LONGITUDE}&appid={API_KEY}&units=metric`);
+                const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={API key}`);
                 setWeatherData(response.data);
             } catch (error) {
                 setError(error.message);

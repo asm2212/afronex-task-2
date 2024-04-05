@@ -9,7 +9,7 @@ function ForecastSearch() {
 
     const handleSearch = async () => {
         try {
-            const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${searchQuery}&appid={API_KEY}&units=metric`);
+            const response = await axios.get(`api.openweathermap.org/data/2.5/forecast/daily?lat={lat}&lon={lon}&cnt={cnt}&appid={API key}`);
             setSearchResults([response.data]);
         } catch (error) {
             setError(error.message);
