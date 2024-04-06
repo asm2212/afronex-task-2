@@ -1,7 +1,7 @@
 import { DateTime } from "luxon";
 
-const API_KEY = "5b734aef764729b2d6d8fdf99d598cd7";
-const BASE_URL = "https://api.openweathermap.org/data/2.5";
+const API_KEY = "3805eba3b0333ccbb1f09e86272e898e";
+const BASE_URL = "https://api.openweathermap.org/data/2.5/weather?q={city name},{country code}&appid={API key}";
 
 // https://api.openweathermap.org/data/2.5/onecall?lat=48.8534&lon=2.3488&exclude=current,minutely,hourly,alerts&appid=1fa9ff4126d95b8db54f3897a208e91c&units=metric
 
@@ -43,11 +43,14 @@ const formatCurrentWeather = (data) => {
     speed,
   };
 };
-
-
 const formatForecastWeather = (data) => {
-  let { timezone, daily, hourly } = data;
-  daily = daily.slice(1, 6).map((d) => {
+  if (!data || !data.timezone || !data.daily || !data.hourly) {
+    throw new Error("Invalid data received");
+  }
+
+  const { timezone, daily, hourly } = data;
+
+  const formattedDaily = daily.slice(1, 6).map((d) => {
     return {
       title: formatToLocalTime(d.dt, timezone, "ccc"),
       temp: d.temp.day,
@@ -55,7 +58,7 @@ const formatForecastWeather = (data) => {
     };
   });
 
-  hourly = hourly.slice(1, 6).map((d) => {
+  const formattedHourly = hourly.slice(1, 6).map((d) => {
     return {
       title: formatToLocalTime(d.dt, timezone, "hh:mm a"),
       temp: d.temp,
@@ -63,8 +66,9 @@ const formatForecastWeather = (data) => {
     };
   });
 
-  return { timezone, daily, hourly };
+  return { timezone, daily: formattedDaily, hourly: formattedHourly };
 };
+
 
 const getFormattedWeatherData = async (searchParams) => {
   const formattedCurrentWeather = await getWeatherData(

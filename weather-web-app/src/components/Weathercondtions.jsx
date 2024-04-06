@@ -1,28 +1,10 @@
 import React from "react";
-import {
-  UilTemperature,
-  UilTear,
-  UilWind,
-  UilSun,
-  UilSunset,
-} from "@iconscout/react-unicons";
+import { UilTemperature, UilTear, UilWind, UilSun, UilSunset } from "@iconscout/react-unicons";
 import { formatToLocalTime, iconUrlFromCode } from "../service/weather.js";
 
-function Weathercondtions({
-  weather: {
-    details,
-    icon,
-    temp,
-    temp_min,
-    temp_max,
-    sunrise,
-    sunset,
-    speed,
-    humidity,
-    feels_like,
-    timezone,
-  },
-}) {
+function WeatherConditions({ weather }) {
+  const { details, icon, temp, feels_like, humidity, speed, sunrise, sunset, temp_min, temp_max, timezone } = weather;
+
   return (
     <div>
       <div className="flex items-center justify-center py-6 text-xl text-cyan-300">
@@ -35,7 +17,7 @@ function Weathercondtions({
         <div className="flex flex-col space-y-2">
           <div className="flex font-light text-sm items-center justify-center">
             <UilTemperature size={18} className="mr-1" />
-            Real fell:
+            Real feel:
             <span className="font-medium ml-1">{`${feels_like.toFixed()}°`}</span>
           </div>
           <div className="flex font-light text-sm items-center justify-center">
@@ -87,4 +69,4 @@ function Weathercondtions({
   );
 }
 
-export default Weathercondtions;
+export default WeatherConditions;
