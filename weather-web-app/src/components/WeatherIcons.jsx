@@ -1,4 +1,4 @@
-// WeatherIcons.js
+/* // WeatherIcons.js
 import React from 'react';
 import { RiSunFill, RiCloudFill } from 'react-icons/ri';
 import { WiRain } from 'react-icons/wi';
@@ -27,4 +27,4 @@ function WeatherIcons({ condition }) {
     );
 }
 
-export default WeatherIcons;
+export default WeatherIcons; */

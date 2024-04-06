@@ -1,4 +1,4 @@
-
+/* 
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import WeatherIcons from './WeatherIcons';
@@ -36,4 +36,4 @@ function CurrentWeather() {
     );
 }
 
-export default CurrentWeather;
+export default CurrentWeather; */
