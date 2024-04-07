@@ -1,3 +1,4 @@
+import './App.css';
 import React, { useEffect, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -44,7 +45,7 @@ function App() {
 
       {weather && (
         <div>
-          <TimeAndLocation weather={weather} />
+          <TimeAndLocation  />
           <Weatherconditions weather={weather} />
           <Forecast title="Hourly Forecast" items={weather.hourly} />
           <Forecast title="Daily Forecast" items={weather.daily} />
