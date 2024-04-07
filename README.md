@@ -2,6 +2,7 @@
 
 # Overview
 <img width="434" alt="weather" src="https://github.com/asm2212/afronex-task-2/assets/146835831/2cd843f1-6183-45f2-9610-275733e83990">
+
 This is a simple weather web application built using React.js that allows users to view current weather conditions and forecasts for various locations. The app retrieves weather data from an external API and dynamically displays the results based on user input.
 
 ## Features
