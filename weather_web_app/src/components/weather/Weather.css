@@ -1,23 +1,22 @@
-.weather-container{
-    width: 670px;
-    height: 829px;
+.weather-container {
+    width: 570px;
+    height: 540px;
     margin: auto;
-    margin-top: 75px;
+    margin-top: 5px;
     border-radius: 10px;
-    background-image: linear-gradient(180deg,#130754 0%,#3b2f82 100%);
-
-}
-
-.top-bar {
+    background-image: linear-gradient(180deg, #130754 0%, #3b2f82 100%);
+  }
+  
+  .top-bar {
     display: flex;
     justify-content: center;
-    gap:  15px;
+    gap: 15px;
     padding-top: 60px;
-}
-.top-bar input{
-    display: flex;
+  }
+  
+  .top-bar input {
     width: 362px;
-    height: 78px;
+    height: 60px;
     background: #ebfffc;
     border: none;
     outline: none;
@@ -25,57 +24,59 @@
     padding-left: 40px;
     color: #626262;
     font-size: 20px;
-    font-weight: 400;
-}
-.search-icon{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 78px;
-    height: 78px;
+    font-weight: 300;
+  }
+  
+  .search-icon {
+    width: 50px;
+    height: 50px;
     background: #ebfffc;
-    border-radius: 40px;
+    border-radius: 50px;
     cursor: pointer;
-}
-.weather-image{
-    margin-top: 29px;
+  }
+  
+  .weather-image {
+    margin-top: 15px;
+    height: 60px;
     display: flex;
     justify-content: center;
-}
-
-.weather-temp{
-    display: flex;
-    justify-content: center;
+  }
+  
+  .weather-temp {
     color: white;
-    font-size: 120px;
-    font-weight: 400;
-}
-.weather-location{
+    font-size: 40px;
+    font-weight: 300;
+  }
+  
+  .weather-location {
+    color: white;
+    font-size: 40px;
+  }
+  
+  .data-container {
+    margin-top: 30px;
+    color: white;
     display: flex;
     justify-content: center;
-    color: white;
-    font-size: 60px;
-}
-.data-container{
-    margin-top: 50px;
-    color: white;
-    display: flex;
-    justify-content: center;
-}
-.element{
-    margin: auto;
+  }
+  
+  .element {
     display: flex;
     align-items: flex-start;
-    gap: 12px;
-}
-.data{
+    gap: 10px;
+  }
+  
+  .data {
     font-size: 34px;
-    font-weight: 400;
-}
-.text{
-    font-size: 34px;
-    font-weight: 400;
-}
-.icon{
+    font-weight: 300;
+  }
+  
+  .text {
+    font-size: 35px;
+    font-weight: 300;
+  }
+  
+  .icon {
     margin-top: 10px;
-}
+  }
+  
