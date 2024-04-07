@@ -12,7 +12,7 @@ import wind_icon from "../Assets/wind.png";
 const Weather = () => {
   const api_key = "29db2be289f2e6d790849910ca3bf6c8";
   const [weatherData, setWeatherData] = useState(null);
-  const [wicon, setWicon] = useState(cloud_icon);
+  const [weatherIcon, setWeatherIcon] = useState(cloud_icon);
 
   useEffect(() => {
     getCurrentLocationWeather();
@@ -27,7 +27,7 @@ const Weather = () => {
           const response = await fetch(url);
           const data = await response.json();
           setWeatherData(data);
-          setWeatherIcon(data.weather[0].icon);
+          setWeatherIcon(getWeatherIcon(data.weather[0].icon));
         });
       } else {
         console.log("Geolocation is not supported by this browser.");
@@ -44,36 +44,40 @@ const Weather = () => {
       const response = await fetch(url);
       const data = await response.json();
       setWeatherData(data);
-      setWeatherIcon(data.weather[0].icon);
+      setWeatherIcon(getWeatherIcon(data.weather[0].icon));
     } catch (error) {
       console.error("Error searching weather:", error);
     }
   };
 
-  const setWeatherIcon = (iconCode) => {
+  const getWeatherIcon = (iconCode) => {
     if (iconCode === "01d" || iconCode === "01n") {
-      setWicon(clear_icon);
-    } else if (iconCode === "02d" || iconCode === "02n") {
-      setWicon(cloud_icon);
-    } else if (iconCode === "03d" || iconCode === "03n") {
-      setWicon(drizzle_icon);
-    } else if (iconCode === "04d" || iconCode === "04n") {
-      setWicon(rain_icon);
-    } else if (iconCode === "09d" || iconCode === "09n") {
-      setWicon(rain_icon);
-    } else if (iconCode === "10d" || iconCode === "10n") {
-      setWicon(rain_icon);
-    } else if (iconCode === "11d" || iconCode === "11n") {
-      setWicon(rain_icon);
-    } else if (iconCode === "13d" || iconCode === "13n") {
-      setWicon(snow_icon);
+      return clear_icon;
+    } else if (iconCode === "02d" || iconCode === "02n" || iconCode === "03d" || iconCode === "03n") {
+      return cloud_icon;
+    } else if (iconCode.startsWith("04") || iconCode.startsWith("09") || iconCode.startsWith("10") || iconCode.startsWith("11")) {
+      return rain_icon;
+    } else if (iconCode.startsWith("13")) {
+      return snow_icon;
     } else {
-      setWicon(clear_icon);
+      return clear_icon;
+    }
+  };
+
+  const getWeatherClass = (iconCode) => {
+    if (iconCode.startsWith("01")) {
+      return "sunny";
+    } else if (iconCode.startsWith("02") || iconCode.startsWith("03")) {
+      return "cloudy";
+    } else if (iconCode.startsWith("04") || iconCode.startsWith("09") || iconCode.startsWith("10") || iconCode.startsWith("11")) {
+      return "rainy";
+    } else {
+      return "";
     }
   };
 
   return (
-    <div className="weather-container">
+    <div className={`weather-container ${weatherData && getWeatherClass(weatherData.weather[0].icon)}`}>
       <div className='top-bar'>
         <input type='text' className='city-input' placeholder="Search for City name or ZIP code..." />
         <div className='search-icon' onClick={() => search(document.querySelector('.city-input').value)}>
@@ -82,24 +86,20 @@ const Weather = () => {
       </div>
 
       <div className='weather-image'>
-        <img src={wicon} className="weather-icon" alt="Weather Icon" />
+        <img src={weatherIcon} className="weather-icon" alt="Weather Icon" />
       </div>
       <div className='weather-temp'>{weatherData && `${Math.floor(weatherData.main.temp)}°C`}</div>
       <div className='weather-location'>{weatherData && weatherData.name}</div>
       <div className='data-container'>
         <div className='element'>
           <img src={humidity_icon} alt='' className='icon' />
-          <div className='data'>
-            <div className='humidity-percent'>{weatherData && `${weatherData.main.humidity}%`}</div>
-            <div className='text'>Humidity</div>
-          </div>
+          <div className='label'>Humidity</div>
+          <div className='value'>{weatherData && `${weatherData.main.humidity}%`}</div>
         </div>
         <div className='element'>
           <img src={wind_icon} alt='' className='icon' />
-          <div className='data'>
-            <div className='wind_rate'>{weatherData && `${Math.floor(weatherData.wind.speed)} km/h`}</div>
-            <div className='text'>Wind Speed</div>
-          </div>
+          <div className='label'>Wind</div>
+          <div className='value'>{weatherData && `${weatherData.wind.speed} m/s`}</div>
         </div>
       </div>
     </div>
@@ -107,4 +107,3 @@ const Weather = () => {
 };
 
 export default Weather;
-
