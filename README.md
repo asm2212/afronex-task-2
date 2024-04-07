@@ -7,7 +7,6 @@ This is a simple weather web application built using React.js that allows users 
 
 Current Weather Display: Shows current weather conditions including temperature, humidity, wind speed, and more.
 Search Functionality: Enables users to search weather forecasts using city names or ZIP codes.
-Responsive Design: Built with responsive design principles to ensure optimal viewing experience across different devices.
 
 ## Technologies Used
 
@@ -27,10 +26,10 @@ Open your browser and navigate to http://localhost:3000 to view the app.
 ## API Integration
 The app integrates with the OpenWeather API to fetch weather data.
 
- You will need to sign up for an API key from OpenWeather and replace YOUR_API_KEY in service/weather.js with your actual API key.
+ You will need to sign up for an API key from OpenWeather and replace YOUR_API_KEY in weather.jsx with your actual API key.
 
 ## Usage
-Enter a city name or ZIP code in the search bar and press enter or click the search button to view weather forecasts for that location.
+Enter a city name or ZIP code in the search bar and  click the search icon to view weather forecasts for that location.
 
 The app will display current weather conditions including temperature, humidity, wind speed, sunrise, sunset, and more.
 Enjoy exploring weather forecasts for different locations!
