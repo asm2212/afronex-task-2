@@ -1,3 +1,8 @@
+// // service/weatherService.js
+import { DateTime } from "luxon";
+
+// Function to format local time
+
 const mockWeatherData = {
   temperature: 20,
   feelsLike: 18,
@@ -20,24 +25,11 @@ export const getCurrentWeather = async (searchQuery) => {
   });
 };
 
-// Function to format local time
 export const formatToLocalTime = (
   secs,
   zone,
   format = "cccc, dd LLL yyyy' | Local time: 'hh:mm a"
-) => {
-  // Mock implementation, replace with actual implementation if needed
-  return new Date(secs * 1000).toLocaleString("en-US", {
-    timeZone: zone,
-    weekday: "long",
-    day: "numeric",
-    month: "long",
-    year: "numeric",
-    hour: "numeric",
-    minute: "numeric",
-    hour12: true
-  });
-};
+) => DateTime.fromSeconds(secs).setZone(zone).toFormat(format);
 
 // Function to get weather icon URL
 export const iconUrlFromCode = (code) =>

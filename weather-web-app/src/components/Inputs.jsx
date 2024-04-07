@@ -1,3 +1,4 @@
+// Inputs.js
 import React, { useState } from "react";
 
 function Inputs({ onSearch }) {
@@ -14,7 +15,7 @@ function Inputs({ onSearch }) {
         type="text"
         value={searchQuery}
         onChange={(e) => setSearchQuery(e.target.value)}
-        placeholder="Search for city names or ZIP code..."
+        placeholder="Enter city name or ZIP code..."
         className="text-xl font-light p-2 w-full shadow-xl focus:outline-none capitalize placeholder:lowercase"
       />
       <button onClick={handleSearch}>Search</button>
