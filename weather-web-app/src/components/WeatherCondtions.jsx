@@ -1,10 +1,9 @@
 import React from "react";
 import { formatToLocalTime,getWeatherIcon } from "../service/weather.js";
-// import { formatToLocalTime, getWeatherIcon } from "./service/weather.js";
 import { UilTemperature, UilTear, UilWind, UilSun, UilSunset } from '@iconscout/react-unicons';
 
 function WeatherConditions({ weather }) {
-  if (!weather) return null; // Handle case when weather data is not available
+  if (!weather) return null;
 
   const { details, icon, temp, temp_min, temp_max, sunrise, sunset, speed, humidity, feels_like, timezone } = weather;
 

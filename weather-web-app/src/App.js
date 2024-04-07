@@ -1,7 +1,7 @@
 // App.js
 import React, { useEffect, useState } from "react";
-import { getCurrentWeather } from "./service/weather.js"; // Correct import path
-import WeatherConditions from "./components/WeatherCondtions.jsx";// Correct import path
+import { getCurrentWeather } from "./service/weather.js"; 
+import WeatherConditions from "./components/WeatherCondtions.jsx";
 import Inputs from "./components/Inputs";
 
 function App() {
@@ -10,7 +10,7 @@ function App() {
   useEffect(() => {
     const fetchCurrentWeather = async () => {
       try {
-        // Get current weather based on user's location
+      
         const data = await getCurrentWeather();
         setWeatherData(data);
       } catch (error) {
@@ -18,14 +18,13 @@ function App() {
       }
     };
 
-    // Fetch current weather data on component mount
     fetchCurrentWeather();
   }, []);
 
-  // Function to handle weather search by city name or ZIP code
+  
   const handleSearch = async (searchQuery) => {
     try {
-      // Get weather data for the entered location
+    
       const data = await getCurrentWeather(searchQuery);
       setWeatherData(data);
     } catch (error) {
