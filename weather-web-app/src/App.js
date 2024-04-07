@@ -1,7 +1,7 @@
 // App.js
 import React, { useEffect, useState } from "react";
 import { getCurrentWeather } from "./service/weather.js"; // Correct import path
-import WeatherConditions from "./components/WeatheraCondtions.jsx";// Correct import path
+import WeatherConditions from "./components/WeatherCondtions.jsx";// Correct import path
 import Inputs from "./components/Inputs";
 
 function App() {
