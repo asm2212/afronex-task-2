@@ -12,9 +12,6 @@ Responsive Design: Built with responsive design principles to ensure optimal vie
 ## Technologies Used
 
 React.js,
-tailwind ,
-JavaScript,
-HTML5,
 CSS3
 
 ## Setup
