@@ -1,10 +1,10 @@
 
-#Weather Web App
+Weather Web App
 
-#Overview
+Overview
 This is a simple weather web application built using React.js that allows users to view current weather conditions and forecasts for various locations. The app retrieves weather data from an external API and dynamically displays the results based on user input.
 
-#Features
+Features
 Current Weather Display: Shows current weather conditions including temperature, humidity, wind speed, and more.
 Search Functionality: Enables users to search weather forecasts using city names or ZIP codes.
 Responsive Design: Built with responsive design principles to ensure optimal viewing experience across different devices.
