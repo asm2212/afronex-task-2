@@ -94,7 +94,7 @@ const Weather = () => {
   return (
     <div
       className={`weather-container ${
-        weatherData && getWeatherClass(weatherData.weather[0].icon)
+        weatherData && weatherData.weather && weatherData.weather[0] && getWeatherClass(weatherData.weather[0].icon)
       }`}
     >
       <div className="top-bar">
